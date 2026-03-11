@@ -23,7 +23,7 @@ function toSeconds(minutes: number, seconds: number): number {
 /** 時間入力コンポーネント */
 function TimeInput({
   label,
-  emoji,
+  icon,
   minutes,
   seconds,
   disabled,
@@ -31,7 +31,7 @@ function TimeInput({
   onSecondsChange,
 }: {
   label: string
-  emoji: string
+  icon: string
   minutes: number
   seconds: number
   disabled: boolean
@@ -39,9 +39,9 @@ function TimeInput({
   onSecondsChange: (value: number) => void
 }) {
   return (
-    <div className="flex flex-col items-center gap-2 bg-card backdrop-blur-sm rounded-2xl p-4 shadow-md border border-border/50">
-      <span className="text-sm font-bold text-card-foreground flex items-center gap-1.5">
-        <span>{emoji}</span>
+    <div className="flex flex-col items-center gap-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-4 shadow-lg border border-white/30 dark:border-slate-600/30">
+      <span className="text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+        <img src={icon} alt="" className="w-6 h-6" />
         {label}
       </span>
       <div className="flex items-center gap-1">
@@ -54,13 +54,15 @@ function TimeInput({
           disabled={disabled}
           aria-label={`${label}（分）`}
           className={cn(
-            'w-14 h-10 text-center text-lg font-mono font-bold rounded-xl border-2 border-border bg-background text-foreground',
-            'focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary',
+            'w-14 h-10 text-center text-lg font-mono font-bold rounded-xl border-2',
+            'bg-white/60 dark:bg-slate-700/60 text-slate-800 dark:text-slate-100',
+            'border-white/40 dark:border-slate-600/40',
+            'focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400',
             'disabled:opacity-50 disabled:cursor-not-allowed',
             'transition-all duration-200'
           )}
         />
-        <span className="text-muted-foreground font-mono text-lg font-bold">:</span>
+        <span className="text-slate-500 dark:text-slate-400 font-mono text-lg font-bold">:</span>
         <input
           type="number"
           min={0}
@@ -70,8 +72,10 @@ function TimeInput({
           disabled={disabled}
           aria-label={`${label}（秒）`}
           className={cn(
-            'w-14 h-10 text-center text-lg font-mono font-bold rounded-xl border-2 border-border bg-background text-foreground',
-            'focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary',
+            'w-14 h-10 text-center text-lg font-mono font-bold rounded-xl border-2',
+            'bg-white/60 dark:bg-slate-700/60 text-slate-800 dark:text-slate-100',
+            'border-white/40 dark:border-slate-600/40',
+            'focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400',
             'disabled:opacity-50 disabled:cursor-not-allowed',
             'transition-all duration-200'
           )}
@@ -115,7 +119,7 @@ export function TimeSettings({
     <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
       <TimeInput
         label="作業時間"
-        emoji="🐊"
+        icon="/images/croc-working.png"
         minutes={workMinutes}
         seconds={workSeconds}
         disabled={isRunning}
@@ -124,7 +128,7 @@ export function TimeSettings({
       />
       <TimeInput
         label="休憩時間"
-        emoji="💤"
+        icon="/images/croc-sleepy.png"
         minutes={breakMinutes}
         seconds={breakSeconds}
         disabled={isRunning}

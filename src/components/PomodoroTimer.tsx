@@ -21,12 +21,12 @@ export function PomodoroTimer() {
   const totalDuration = mode === 'work' ? workDuration : breakDuration
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-lg mx-auto">
-      {/* ワニのイラストシーン */}
+    <div className="flex flex-col items-center gap-5 w-full max-w-lg mx-auto">
+      {/* ワニキャラクター */}
       <CrocodileScene isRunning={isRunning} mode={mode} />
 
-      {/* タイマー表示 */}
-      <div className="-mt-4">
+      {/* タイマー表示（ガラスカード内） */}
+      <div className="bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-xl border border-white/30 dark:border-slate-600/30">
         <TimerDisplay
           timeLeft={timeLeft}
           totalDuration={totalDuration}

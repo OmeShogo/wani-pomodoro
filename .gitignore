@@ -25,3 +25,4 @@ dist-ssr
 
 # 生成画像
 画像/
+.vercel

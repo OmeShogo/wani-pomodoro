@@ -68,69 +68,42 @@ body {
   @apply border-border;
 }
 
-/* 水面の波アニメーション */
-@keyframes wave {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-25%); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes wave-reverse {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(25%); }
-  100% { transform: translateX(0); }
-}
-
+/* ゆっくり浮遊 */
 @keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-slow {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-6px); }
 }
 
-@keyframes blink {
-  0%, 90%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); }
-}
-
-@keyframes tail-wag {
+/* 花の揺れ */
+@keyframes sway {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(5deg); }
-  75% { transform: rotate(-5deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
 }
 
-@keyframes bubble {
-  0% { transform: translateY(0) scale(1); opacity: 0.6; }
-  100% { transform: translateY(-40px) scale(0.3); opacity: 0; }
-}
-
-@keyframes ripple {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(2); opacity: 0; }
-}
-
-.animate-wave {
-  animation: wave 6s ease-in-out infinite;
-}
-
-.animate-wave-reverse {
-  animation: wave-reverse 8s ease-in-out infinite;
+/* ゆっくりパルス */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-.animate-blink {
-  animation: blink 4s ease-in-out infinite;
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
 }
 
-.animate-tail-wag {
-  animation: tail-wag 2s ease-in-out infinite;
+.animate-sway {
+  animation: sway 4s ease-in-out infinite;
 }
 
-.animate-bubble {
-  animation: bubble 3s ease-in-out infinite;
-}
-
-.animate-ripple {
-  animation: ripple 2s ease-in-out infinite;
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
 }

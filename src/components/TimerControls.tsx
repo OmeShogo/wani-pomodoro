@@ -19,7 +19,7 @@ export function TimerControls({ isRunning, onToggle, onReset }: TimerControlsPro
         size="lg"
         onClick={onToggle}
         aria-label={isRunning ? '停止' : '開始'}
-        className="min-w-28 sm:min-w-32 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+        className="min-w-28 sm:min-w-32 rounded-full shadow-lg hover:shadow-xl transition-all bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 backdrop-blur-sm"
       >
         {isRunning ? (
           <>
@@ -38,7 +38,7 @@ export function TimerControls({ isRunning, onToggle, onReset }: TimerControlsPro
         size="lg"
         onClick={onReset}
         aria-label="リセット"
-        className="rounded-full"
+        className="rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border-white/40 dark:border-slate-600/40 hover:bg-white/70 dark:hover:bg-slate-700/50"
       >
         <RotateCcw className="w-5 h-5 mr-2" />
         リセット
